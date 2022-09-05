@@ -7,14 +7,15 @@ public class BoardGui{
         int boardWidth = 800;
         int buttonHight = 100;
         int buttonWidth = 100;
-        String player = "x";
+        String player = "x"; //which player turn it is
 
-        JFrame window = new JFrame();
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JFrame window = new JFrame(); // craeting screen
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         window.setLayout(null);
         window.setSize(boardWidth,boardHight);
         window.setLocationRelativeTo(null);
 
+        // creating buttons
         JButton b1 = new JButton("");
         JButton b2 = new JButton("");
         JButton b3 = new JButton("");
@@ -25,6 +26,7 @@ public class BoardGui{
         JButton b8 = new JButton("");
         JButton b9 = new JButton("");
 
+        // adding the buttons to screen
         window.add(b1);
         window.add(b2);
         window.add(b3);
@@ -35,6 +37,7 @@ public class BoardGui{
         window.add(b8);
         window.add(b9);
 
+        // putting the bounds of the buttons
         b1.setBounds(200,150,buttonWidth,buttonHight);
         b2.setBounds(350,150,buttonWidth,buttonHight);
         b3.setBounds(500,150,buttonWidth,buttonHight);
@@ -46,7 +49,7 @@ public class BoardGui{
         b9.setBounds(500,550,buttonWidth,buttonHight);
         
         
-    
+        // printing the player's name on to the buttons
         while(true){
             if(player == "x"){
                 b1.addMouseListener(new java.awt.event.MouseAdapter(){
@@ -101,7 +104,7 @@ public class BoardGui{
 
            
             
-
+            // setting the screen visible
             window.setVisible(true);
         }
         
