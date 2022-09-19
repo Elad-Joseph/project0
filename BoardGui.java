@@ -2,12 +2,23 @@ import javax.swing.*;
 
 public class BoardGui{
     
+    JButton b1;
+    JButton b2;
+    JButton b3;
+    JButton b4;
+    JButton b5;
+    JButton b6;
+    JButton b7;
+    JButton b8;
+    JButton b9;
+    String player;
+
     public void main(){
         int boardHight = 800;
         int boardWidth = 800;
         int buttonHight = 100;
         int buttonWidth = 100;
-        String player = "x"; //which player turn it is
+        player = "x"; //which player turn it is
 
         JFrame window = new JFrame(); // craeting screen
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -16,15 +27,15 @@ public class BoardGui{
         window.setLocationRelativeTo(null);
 
         // creating buttons
-        JButton b1 = new JButton("");
-        JButton b2 = new JButton("");
-        JButton b3 = new JButton("");
-        JButton b4 = new JButton("");
-        JButton b5 = new JButton("");
-        JButton b6 = new JButton("");
-        JButton b7 = new JButton("");
-        JButton b8 = new JButton("");
-        JButton b9 = new JButton("");
+        b1 = new JButton("");
+        b2 = new JButton("");
+        b3 = new JButton("");
+        b4 = new JButton("");
+        b5 = new JButton("");
+        b6 = new JButton("");
+        b7 = new JButton("");
+        b8 = new JButton("");
+        b9 = new JButton("");
 
         // adding the buttons to screen
         window.add(b1);
@@ -48,71 +59,45 @@ public class BoardGui{
         b8.setBounds(350,550,buttonWidth,buttonHight);
         b9.setBounds(500,550,buttonWidth,buttonHight);
         
-        
-        // printing the player's name on to the buttons
-        while(true){
-            if(player == "x"){
-                b1.addMouseListener(new java.awt.event.MouseAdapter(){
-                public void mouseClicked(java.awt.event.MouseEvent evt){
-                    b1.setText("X");
-                }                
+        AddMouseListener(b1);
+        AddMouseListener(b2);
+        AddMouseListener(b3);
+        AddMouseListener(b4);
+        AddMouseListener(b5);
+        AddMouseListener(b6);
+        AddMouseListener(b7);
+        AddMouseListener(b8);
+        AddMouseListener(b9);
+
+        window.setVisible(true);
+    }
+
+    public void AddMouseListener(JButton Button) {
+        Button.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                MouseClicked(Button);
             }
-            );
-            
-            b2.addMouseListener(new java.awt.event.MouseAdapter(){
-                public void mouseClicked(java.awt.event.MouseEvent evt){
-                    b2.setText("X");
-                }                
-            });
-            b3.addMouseListener(new java.awt.event.MouseAdapter(){
-                public void mouseClicked(java.awt.event.MouseEvent evt){
-                    b3.setText("X");
-                }
-            });
-            b4.addMouseListener(new java.awt.event.MouseAdapter(){
-                public void mouseClicked(java.awt.event.MouseEvent evt){
-                    b4.setText("X");
-                }
-            }); 
-            player = "o";   
-        }
-        else{
-            b1.addMouseListener(new java.awt.event.MouseAdapter(){
-                public void mouseClicked(java.awt.event.MouseEvent evt){
-                    b1.setText("O");
-                }                
-            }
-            ); 
-            b2.addMouseListener(new java.awt.event.MouseAdapter(){
-                public void mouseClicked(java.awt.event.MouseEvent evt){
-                    b2.setText("O");
-                }                
-            });
-            b3.addMouseListener(new java.awt.event.MouseAdapter(){
-                public void mouseClicked(java.awt.event.MouseEvent evt){
-                    b3.setText("O");
-                }
-            });
-            b4.addMouseListener(new java.awt.event.MouseAdapter(){
-                public void mouseClicked(java.awt.event.MouseEvent evt){
-                    b4.setText("O");
-                }
-            });
+        });
+    }
+
+    public void MouseClicked(JButton button) 
+    {
+        if(button.getText() != "")
+            return;
+        button.setText(player);
+        if(player == "x")
+            player = "o";
+        else if(player == "o")
             player = "x";
         }
+    public void CheckWin(){
 
-
-           
-            
-            // setting the screen visible
-            window.setVisible(true);
-        }
-        
-        
-            
-    
-
-        
-        
-    }
-}
+    }        
+} 
+/*
+ * (0,0)(0,1)(0,2)
+ * (1,0)(1,1)(1,2)
+ * (2,0)(2,1)(2,2)
+ */
